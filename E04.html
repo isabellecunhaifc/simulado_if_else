@@ -7,11 +7,35 @@
     //Se o usuário for "Programador" e trabalhar mais que 8 horas diárias, o programa deverá calcular um adicional de 30% (30/100) na sua remuneração. Apresente também quanto recebe por hora, já com o adicional previsto.
 
     //ENTRADA
-
+    const salario = Number(prompt('Informe qual a sua remuneração mensal').replace(",", "."));
+    const cargo = prompt('Informe qual seu cargo (E para estagiário e P para programador)').toUpperCase();
+    const horas = Number(prompt('Informe a quantidade de horas que você trabalha por dia'));
 
     //PROCESSAMENTO
-
-
+    if(cargo == "E"){
+        if(horas <= 6){
+            const conta = Number(salario/20)/horas;
+            alert(`Recebe R$${conta.toFixed(2)} por hora.`)
+        }
+        else if(horas > 6){
+            const aumento = salario * 50/100;
+            const aumento2 = Number(salario + aumento)
+            const conta = Number(aumento2/20)/horas;
+            alert(`Precisa ser contratado, com o adicional previsto, você receberá por hora R$${conta.toFixed(2)}.`)
+        }
+    }
+    else if(cargo == "P"){
+        if(horas <= 8){
+            const conta = Number(salario/20)/horas;
+            alert(`Recebe R$${conta.toFixed(2)} por hora.`)
+        }
+        else if(horas > 8){
+            const aumento = salario * 30/100;
+            const aumento2 = Number(salario + aumento);
+            const conta = Number(aumento2/20)/horas
+            alert(`Deverá ganhar um adicional de 30%. Com o adicional previsto, ganhará R$${conta.toFixed(2)} por hora.`)
+        }
+    }
     //SAÍDA
 
 </script>
